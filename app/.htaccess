@@ -4,3 +4,14 @@
 <IfModule !authz_core_module>
 	Deny from all
 </IfModule>
+
+# Email Configuration
+email.fromEmail = "no-reply@acehobbytown.com"
+email.fromName = "Ace Hobby Town"
+email.protocol = "smtp"
+email.SMTPHost = "smtp.gmail.com"
+email.SMTPUser = "email@gmail.com"
+email.SMTPPass = "app-password"
+email.SMTPPort = 587
+email.SMTPCrypto = "tls"
+email.mailType = "html"
