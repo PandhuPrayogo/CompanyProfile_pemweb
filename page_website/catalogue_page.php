@@ -17,10 +17,10 @@
       <a href="#" class="logo">ACE<span>HOBBY</span>TOWN</a>
 
       <ul class="navbar">
-        <li><a href="index.html"> Home </a></li>
-        <li><a href="about_page.html"> About </a></li>
-        <li><a href="#catalogue"> Catalogue </a></li>
-        <li><a href="blog_page.html"> Blog </a></li>
+        <li><a href="home_page.php"> Home </a></li>
+        <li><a href="about_page.php"> About </a></li>
+        <li><a href="catalogue_page.php"> Catalogue </a></li>
+        <li><a href="blog_page.php"> Blog </a></li>
       </ul>
 
       <div class="h-right">

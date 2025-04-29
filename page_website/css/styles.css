@@ -152,6 +152,7 @@ section {
   color: var(--main-color);
 }
 
+/* Footer Section */ 
 .contact {
   background: var(--bg-color);
   display: grid;
@@ -365,6 +366,7 @@ form textarea {
   height: 100%;
 }
 
+/* Catalogue Section */
 .new-product {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -422,6 +424,7 @@ form textarea {
   border-radius: 5px;
   font-weight: bold;
 }
+
 /* Detail Blog */
 .detail-blog {
   display: none; /* Hidden by default */

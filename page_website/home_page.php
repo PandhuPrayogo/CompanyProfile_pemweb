@@ -18,10 +18,10 @@
       <a href="#" class="logo">ACE<span>HOBBY</span>TOWN</a>
 
       <ul class="navbar">
-        <li><a href="#home"> Home </a></li>
-        <li><a href="about_page.html"> About </a></li>
-        <li><a href="#catalogue"> Catalogue </a></li>
-        <li><a href="blog_page.html"> Blog </a></li>
+        <li><a href="home_page.php"> Home </a></li>
+        <li><a href="about_page.php"> About </a></li>
+        <li><a href="catalogue_page.php"> Catalogue </a></li>
+        <li><a href="blog_page.php"> Blog </a></li>
       </ul>
 
       <div class="h-right">
@@ -38,7 +38,9 @@
         <div class="home-text">
             <h5> Explore Our<h5>
             <h1> Toys and <br> Hobbies Collection </h1>
-            <p> "At Ace Hobby Town, we are committed to providing the highest quality toys and hobbies items that inspire creativity, learning, and fun for children of all ages."Welcome to our toy store – where Hobby and Fun Meets!</p>
+            <p> "At Ace Hobby Town, we are committed to providing the highest quality toys and hobbies items that inspire 
+              creativity, learning, and fun for children of all ages."Welcome to our toy store – 
+              where Hobby and Fun Meets!</p>
             <a href="#" class="button"> Find out More!</a>
         </div>
     </section>
