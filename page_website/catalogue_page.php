@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="app/Views/css/styles.css" />
+    <link rel="stylesheet" href="/page_website/css/styles.css" />
 
     <!-- Remixicon -->
     <link rel="stylesheet" href="app/Views/css/remixicon.css" />

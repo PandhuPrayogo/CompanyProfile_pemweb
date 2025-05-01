@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="app/Views/css/styles.css" />
+    <link rel="stylesheet" href="/page_website/css/styles.css" />
 
     <!-- Remixicon -->
     <link rel="stylesheet" href="app/Views/css/remixicon.css">
@@ -43,6 +43,89 @@
               where Hobby and Fun Meets!</p>
             <a href="#" class="button"> Find out More!</a>
         </div>
+    </section>
+
+    <!-- Section Why -->
+    <section class="why" id="why">
+        <h1 class="why-heading">Why <span>Must</span> ACEHOBBYTOWN?</h1>
+        <div class="row">
+        <div class="why-video">
+          <video src="/video/ssstik.io_1746100128119.mp4" loop autoplay muted></video>
+          <h3> Best Modelkit & Hobbies sellers </h3>
+        </div>
+
+        <div class="why-content">
+          <h3> Why Choose us? </h3>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a libero maximus, vestibulum eros eget, ultricies ante. Donec hendrerit tincidunt mollis. Aliquam eget tortor at ex lobortis gravida. Cras sed est porta metus efficitur egestas et sed velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed augue ut diam volutpat aliquet. Vivamus quis sagittis nulla. Sed mattis, orci vitae finibus vulputate, metus nisl lobortis sapien, porta sagittis erat tellus at dolor. Sed eget urna et diam placerat euismod. Curabitur sed tellus tempus, vulputate sem eget, faucibus magna. Fusce faucibus aliquam arcu vitae elementum. Mauris nec purus scelerisque, tincidunt magna sit amet, finibus dui. Vestibulum laoreet turpis sed vehicula volutpat.</p>
+          <a href="#" class="button">Learn More</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Section review -->
+    <section class="review" id="review">
+      <h1 class="review-heading"> customer's <span>review</span> </h1>
+      <div class="review-container">
+        <div class="review-box">
+          <div class="review-stars">
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit aliquam velit sed cursus. Nunc aliquam tellus ac mattis convallis. Maecenas tincidunt purus ultricies nisi placerat fringilla sit amet non lacus. Morbi mattis condimentum nibh, a tempor erat eleifend a. Donec ut quam vel urna imperdiet pretium. Sed laoreet ante sed massa ultrices volutpat. Praesent vehicula nisi magna, ut auctor odio iaculis eu. Donec ornare blandit turpis, vel rutrum nisi varius sit amet. In eget lorem dignissim, consequat urna vel, gravida leo. Sed accumsan nunc et enim vehicula sollicitudin. Aenean rhoncus condimentum nisl, a gravida dui egestas eu.</p>
+          <div class="review-user">
+              <img src="/img/gundamturna.jpg" alt="">
+              <div class="review-user-info">
+                <h3> Choi Ji-woo </h3>
+                <span> Hearts2Hearts Member </span>
+              </div>
+          </div>
+          <span class="review-quotes"></span>
+        </div>
+
+        <div class="review-box">
+          <div class="review-stars">
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit aliquam velit sed cursus. Nunc aliquam tellus ac mattis convallis. Maecenas tincidunt purus ultricies nisi placerat fringilla sit amet non lacus. Morbi mattis condimentum nibh, a tempor erat eleifend a. Donec ut quam vel urna imperdiet pretium. Sed laoreet ante sed massa ultrices volutpat. Praesent vehicula nisi magna, ut auctor odio iaculis eu. Donec ornare blandit turpis, vel rutrum nisi varius sit amet. In eget lorem dignissim, consequat urna vel, gravida leo. Sed accumsan nunc et enim vehicula sollicitudin. Aenean rhoncus condimentum nisl, a gravida dui egestas eu.</p>
+          <div class="review-user">
+              <img src="/img/gundamturna.jpg" alt="">
+              <div class="review-user-info">
+                <h3> Choi Ji-woo </h3>
+                <span> Hearts2Hearts Member </span>
+              </div>
+          </div>
+          <span class="review-quotes"></span>
+        </div>
+        
+        <div class="review-box">
+          <div class="review-stars">
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          <i class="ri-heart-fill"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit aliquam velit sed cursus. Nunc aliquam tellus ac mattis convallis. Maecenas tincidunt purus ultricies nisi placerat fringilla sit amet non lacus. Morbi mattis condimentum nibh, a tempor erat eleifend a. Donec ut quam vel urna imperdiet pretium. Sed laoreet ante sed massa ultrices volutpat. Praesent vehicula nisi magna, ut auctor odio iaculis eu. Donec ornare blandit turpis, vel rutrum nisi varius sit amet. In eget lorem dignissim, consequat urna vel, gravida leo. Sed accumsan nunc et enim vehicula sollicitudin. Aenean rhoncus condimentum nisl, a gravida dui egestas eu.</p>
+          <div class="review-user">
+              <img src="/img/gundamturna.jpg" alt="">
+              <div class="review-user-info">
+                <h3> Choi Ji-woo </h3>
+                <span> Hearts2Hearts Member </span>
+              </div>
+          </div>
+          <span class="review-quotes"></span>
+        </div>
+      </div>
     </section>
 
     <!-- Section Footer -->

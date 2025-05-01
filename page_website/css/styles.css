@@ -107,7 +107,7 @@ section {
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.3)
     ),
-    url(/public/img/image1.jpg);
+    url(/img/image1.jpg);
   background-size: cover;
   background-position: bottom center;
   display: flex;
@@ -151,8 +151,83 @@ section {
   background: var(--text-color);
   color: var(--main-color);
 }
+.review-heading {
+  text-align: center;
+  font-size: 4rem;
+  padding: 1rem;
+  margin: 2rem 0;
+  background: rgba(255, 51, 153, 0.05);
+}
+.why.row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  padding-bottom: 3rem;
+}
+.why .row .why-video {
+  flex: 1 1 40rem;
+  position: relative;
+}
+.why .row .why-video video {
+  width: 100%;
+  border: 1.5rem solid #ffffffab;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover;
+}
+.why .row .why-video h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  width: 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+  mix-blend-mode: screen;
+}
+.why.row .why-content h3 {
+  font-size: 3rem;
+  color: #ffffffab;
+}
+.why .row .why-content p {
+  font-size: 1.5rem;
+  color: #ffffffab;
+  padding: 5rem 0;
+  padding-top: 1rem;
+  line-height: 1.5;
+}
 
-/* Footer Section */ 
+/* Review Section */
+.review .review-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.review .review-container .review-box {
+  flex: 1 1 30rem;
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  position: relative;
+}
+.review .review-container .review-box .review-quotes {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  font-size: 6rem;
+}
+.review .review-container .review-box .review-stars i {
+  color: var(--main-color);
+  font-size: 2rem;
+}
+.review .review-container .review-box .review-user {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+}
+/* Footer Section */
 .contact {
   background: var(--bg-color);
   display: grid;

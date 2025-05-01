@@ -7,5 +7,3 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->setAutoRoute(true);
-$routes->get('home/index', 'Home::index');
-$routes->get('home/coba', 'Home::coba/$1');

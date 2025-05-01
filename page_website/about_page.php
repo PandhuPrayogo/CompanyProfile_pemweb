@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="app/Views/css/styles.css" />
+    <link rel="stylesheet" href="/page_website/css/styles.css" />
 
     <!-- Remixicon -->
-    <link rel="stylesheet" href="app/Views/css/remixicon.css" />
+    <link rel="stylesheet" href="/page_website/css/remixicon.css" />
   </head>
   <body>
     <!-- Header Template -->
@@ -21,6 +21,7 @@
         <li><a href="about_page.php"> About </a></li>
         <li><a href="catalogue_page.php"> Catalogue </a></li>
         <li><a href="blog_page.php"> Blog </a></li>
+        <li><a href="FAQ_page.php"> FAQ </a></li>
       </ul>
 
       <div class="h-right">
