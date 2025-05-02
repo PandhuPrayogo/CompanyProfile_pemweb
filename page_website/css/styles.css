@@ -43,6 +43,9 @@ header.sticky {
   border-bottom: 1px solid #000000;
   padding: 12px 15%;
 }
+section {
+  background-color: rgb(43, 43, 43);
+}
 .logo {
   font-size: 25px;
   color: var(--text-color);
@@ -151,14 +154,14 @@ section {
   background: var(--text-color);
   color: var(--main-color);
 }
-.review-heading {
+.why-heading {
   text-align: center;
   font-size: 4rem;
   padding: 1rem;
   margin: 2rem 0;
   background: rgba(255, 51, 153, 0.05);
 }
-.why.row {
+.why .why-row {
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -166,11 +169,11 @@ section {
   padding: 2rem 0;
   padding-bottom: 3rem;
 }
-.why .row .why-video {
+.why .why-row .why-video {
   flex: 1 1 40rem;
   position: relative;
 }
-.why .row .why-video video {
+.why .why-row .why-video video {
   width: 100%;
   border: 1.5rem solid #ffffffab;
   border-radius: 0.5rem;
@@ -178,21 +181,26 @@ section {
   height: 100%;
   object-fit: cover;
 }
-.why .row .why-video h3 {
+.why .why-row .why-video h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-color);
+  font-size: var(--h2-font);
+  background: #ffffffab;
   width: 100%;
   padding: 1rem 2rem;
   text-align: center;
   mix-blend-mode: screen;
 }
-.why.row .why-content h3 {
+.why .why-row .why-content {
+  flex: 1 1 40rem;
+}
+.why .why-row .why-content h3 {
   font-size: 3rem;
   color: #ffffffab;
 }
-.why .row .why-content p {
+.why .why-row .why-content p {
   font-size: 1.5rem;
   color: #ffffffab;
   padding: 5rem 0;
@@ -206,17 +214,26 @@ section {
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+.review .review-heading {
+  text-align: center;
+  font-size: 4rem;
+  padding: 1rem;
+  margin: 2rem 0;
+  background: rgba(255, 51, 153, 0.05);
+}
 .review .review-container .review-box {
   flex: 1 1 30rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 3rem 2rem;
   position: relative;
 }
-.review .review-container .review-box .review-quotes {
+.review .review-container .review-box .ri-double-quotes-l {
   position: absolute;
   bottom: 3rem;
   right: 3rem;
   font-size: 6rem;
+  color: var(--main-color);
 }
 .review .review-container .review-box .review-stars i {
   color: var(--main-color);
@@ -227,9 +244,26 @@ section {
   align-items: center;
   padding-top: 2rem;
 }
+.review .review-container .review-box p {
+  font-size: var(--p-font);
+  line-height: 1.5rem;
+  padding-top: 2rem;
+  text-align: justify;
+}
+.review .review-container .review-box .review-user img {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+.review .review-container .review-box .review-user h3 {
+  font-size: var(--h2-font);
+  color: var(--main-color);
+}
 /* Footer Section */
 .contact {
-  background: var(--bg-color);
+  background: rgb(49, 49, 49);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
