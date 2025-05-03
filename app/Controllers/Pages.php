@@ -16,7 +16,26 @@ class Pages extends BaseController
     public function about()
     {
         echo view('layout/header');
-        echo view('pages/home');
+        echo view('pages/about');
         echo view('layout/footer');
     }
+    public function catalogue()
+    {
+        echo view('layout/header');
+        echo view('pages/catalogue');
+        echo view('layout/footer');
+    }
+    public function blog()
+    {
+        echo view('layout/header');
+        echo view('pages/blog');
+        echo view('layout/footer');
+    }
+    public function faq()
+    {
+        echo view('layout/header');
+        echo view('pages/faq');
+        echo view('layout/footer');
+    }
+    
 }

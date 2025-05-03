@@ -53,7 +53,7 @@
           <div class="why-row">
 
           <div class="why-video">
-            <video src="/video/ssstik.io_1746100128119.mp4" loop autoplay muted></video>
+            <video src="/public/video/ssstik.io_1746100128119.mp4" loop autoplay muted></video>
             <h3> Best Modelkit & Hobbies sellers </h3>
           </div>
 
