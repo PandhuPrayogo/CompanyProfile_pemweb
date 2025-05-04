@@ -7,7 +7,7 @@
 
         <div class="blog-content">
           <div class="row">
-            <img src="public/img/news1.png" alt="news1" />
+            <img src="/img/news1.png" alt="news1" />
             <div class="layer">
               <h5>Gundam GQuuuuuuX</h5>
               <p>
@@ -19,7 +19,7 @@
           </div>
 
           <div class="row">
-            <img src="public/img/thegundambase.jpg" alt="news1" />
+            <img src="/img/thegundambase.jpg" alt="news1" />
             <div class="layer">
               <h5>
                 CROSS CONTRAST COLORS Edition MG Gundam Epyon EW and Wing Gundam
@@ -36,7 +36,7 @@
           </div>
 
           <div class="row">
-            <img src="public/img/gundamturna.jpg" alt="news1" />
+            <img src="/img/gundamturna.jpg" alt="news1" />
             <div class="layer">
               <h5>
                 HGCC 1/144 EXPANSION EFFECT UNIT “MOONLIGHT BUTTERFLY” for ∀
@@ -48,7 +48,7 @@
           </div>
 
           <div class="row">
-            <img src="public/img/top.jpg" alt="news1" />
+            <img src="/img/top.jpg" alt="news1" />
             <div class="layer">
               <h5>
                 The Repainted Alpha Omega Series Gundam W Heero Yuy & Relena
@@ -64,7 +64,7 @@
           </div>
 
           <div class="row">
-            <img src="public/img/gundamwing30th.jpg" alt="news1" />
+            <img src="/img/gundamwing30th.jpg" alt="news1" />
             <div class="layer">
               <h5>Mobile Suit Gundam Wing 30th Anniversary Project Begins!</h5>
               <p>
@@ -76,7 +76,7 @@
           </div>
 
           <div class="row">
-            <img src="public/img/secretlab.jpg" alt="news1" />
+            <img src="/img/secretlab.jpg" alt="news1" />
             <div class="layer">
               <h5>The Secretlab Mobile Suit Gundam Collection</h5>
               <p>

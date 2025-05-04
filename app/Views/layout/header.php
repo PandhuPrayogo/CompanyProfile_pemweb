@@ -10,7 +10,7 @@
 
 
     <!-- Remixicon -->
-    <link rel="stylesheet" href="<?= base_url('css/remixicon.css'); ?>" />
+    <link rel="stylesheet" href="/css/remixicon.css" />
   </head>
   <body>
     <!-- Header Template -->

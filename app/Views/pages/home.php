@@ -6,18 +6,17 @@
               <p> "At Ace Hobby Town, we are committed to providing the highest quality toys and hobbies items that inspire 
                 creativity, learning, and fun for children of all ages."Welcome to our toy store – 
                 where Hobby and Fun Meets!</p>
-              <a href="#" class="button"> Find out More!</a>
           </div>
       </section>
 
       <!-- Section Why -->
       <section class="why" id="why">
-          <h1 class="why-heading">Why<span>Must</span> ACEHOBBYTOWN?</h1>
+          <h1 class="why-heading">Why<span> You Must Choose </span> ACEHOBBYTOWN?</h1>
 
           <div class="why-row">
 
           <div class="why-video">
-            <video src="/video/ssstik.io_1746100128119.mp4" loop autoplay muted></video>
+            <img src="/img/image1.jpg" alt="">
             <h3> Best Modelkit & Hobbies sellers </h3>
           </div>
 
@@ -32,7 +31,7 @@
 
       <!-- Section review -->
       <section class="review" id="review">
-        <h1 class="review-heading"> customer's <span>review</span> </h1>
+        <h1 class="review-heading"> Customer's <span>Review</span> </h1>
         <div class="review-container">
           <div class="review-box">
             <div class="review-stars">
@@ -50,7 +49,6 @@
                   <h3> Jang Na-Young </h3>
                   <span> QWER's Guitarist </span>
                 </div>
-                <span><i class="ri-double-quotes-l"></i></span>
             </div>
           </div>
 
