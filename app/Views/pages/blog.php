@@ -46,6 +46,46 @@
               <a href="#"><i class="ri-article-line"></i></a>
             </div>
           </div>
+          <div class="row">
+            <img src="/img/news1.png" alt="news1" />
+            <div class="layer">
+              <h5>Gundam GQuuuuuuX</h5>
+              <p>
+                Its first few episodes were initially shown in Japanese theaters
+                on 2025-01-17
+              </p>
+              <a href="#"><i class="ri-article-line"></i></a>
+            </div>
+          </div>
+
+          <div class="row">
+            <img src="/img/thegundambase.jpg" alt="news1" />
+            <div class="layer">
+              <h5>
+                CROSS CONTRAST COLORS Edition MG Gundam Epyon EW and Wing Gundam
+                Zero EW
+              </h5>
+              <p>
+                The MG Gundam Epyon EW [CROSS CONTRAST COLORS/CLEAR WHITE] and MG
+                Wing Gundam Zero EW [CROSS CONTRAST COLORS/CLEAR PURPLE] will be
+                released at all THE GUNDAM BASE stores (general GUNPLA facilities)
+                on Saturday, April 26th.
+              </p>
+              <a href="#"><i class="ri-article-line"></i></a>
+            </div>
+          </div>
+
+          <div class="row">
+            <img src="/img/gundamturna.jpg" alt="news1" />
+            <div class="layer">
+              <h5>
+                HGCC 1/144 EXPANSION EFFECT UNIT “MOONLIGHT BUTTERFLY” for ∀
+                GUNDAM
+              </h5>
+              <p>RELEASE DATE: Aug. 2025</p>
+              <a href="#"><i class="ri-article-line"></i></a>
+            </div>
+          </div>
 
           <div class="row">
             <img src="/img/top.jpg" alt="news1" />
@@ -87,6 +127,9 @@
             </div>
           </div>
         </div>
+        <div class="update-text">
+        <p> Last Update at: 5/5/2025 - 8:17 AM </p>
+      </div>
       </section>
 
       <!-- Detail Blog -->

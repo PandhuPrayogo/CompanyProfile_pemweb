@@ -18,11 +18,10 @@
   outline: none;
   scroll-behavior: smooth;
   font-family: "Open Sans", sans-serif;
-  background: var(--bg-color2);
 }
 body {
   color: var(--text-color);
-  background: var(--bg-color);
+  background: var(--bg-color-2);
 }
 
 /* Header Template */
@@ -118,7 +117,7 @@ section {
   align-items: center;
   justify-content: flex-start;
 }
-.homte-text h5 {
+.home-text h5 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
@@ -169,28 +168,17 @@ section {
   padding: 2rem 0;
   padding-bottom: 3rem;
 }
-.why .why-row .why-video {
+.why .why-row .why-image {
   flex: 1 1 40rem;
   position: relative;
 }
-.why .why-row .why-video img {
+.why .why-row .why-image img {
   width: 100%;
   border: 1rem solid #ffffffab;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   height: 100%;
   object-fit: cover;
-}
-.why .why-row .why-video h3 {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: var(--h2-font);
-  background: #ffffffab;
-  width: 100%;
-  padding: 1rem 2rem;
-  text-align: center;
-  mix-blend-mode: screen;
 }
 .why .why-row .why-content {
   flex: 1 1 40rem;
@@ -259,6 +247,7 @@ section {
   font-size: var(--h2-font);
   color: var(--main-color);
 }
+
 /* Footer Section */
 .contact {
   background: rgb(49, 49, 49);
@@ -360,19 +349,24 @@ form textarea {
 }
 
 /* Section About */
-
-.about {
+.about-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  gap: 1.5rem;
-  padding-top: 10rem;
+  gap: 4rem 4rem;
+  padding-top: 5rem;
+  align-items: center;
+  justify-items: center;
 }
 .about-img img {
   max-width: 530px;
   height: auto;
   width: 100%;
   border-radius: 8px;
+}
+.about-text {
+  max-width: 500px;
+  text-align: center;
 }
 .about-text h2 {
   font-size: var(--h2-font);
@@ -406,6 +400,12 @@ form textarea {
 .main-text h2 {
   font-size: var(--h2-font);
   line-height: 1;
+}
+.update-text {
+  font-size: 20px;
+  color: var(--text-color);
+  margin-top: 5rem;
+  text-align: center;
 }
 
 /* Section Blog */
@@ -572,6 +572,7 @@ form textarea {
   cursor: pointer;
 }
 
+/* FAQ Section */
 .faq-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, auto));
@@ -602,4 +603,70 @@ form textarea {
   color: #ffffffab;
   line-height: 1.8;
   margin-bottom: 20px;
+}
+
+@media (max-width: 1700px) {
+  header {
+    padding: 18px 8%;
+  }
+  header.sticky {
+    padding: 7px 8%;
+  }
+}
+@media (max-width: 1200px) {
+  header {
+    padding: 14px 5%;
+  }
+  header.sticky {
+    padding: 7px 5%;
+  }
+  :root {
+    --h1-font: 5rem;
+    --h2-font: 2.5rem;
+    --p-font: 0.9rem;
+  }
+  .home {
+    height: 90vh;
+  }
+}
+@media (max-width: 1050px) {
+  header {
+    padding: 14px 5%;
+  }
+  header.sticky {
+    padding: 7px 5%;
+  }
+  :root {
+    --h1-font: 5rem;
+    --h2-font: 2.5rem;
+    --p-font: 0.9rem;
+  }
+  .home {
+    height: 90vh;
+  }
+  #menu-icon {
+    display: block;
+  }
+  .navbar {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    padding: 40px 60px;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-color-2);
+    transition: all 0.5s ease;
+  }
+  .navbar a {
+    display: block;
+    color: var(--text-color);
+    padding: 0;
+    margin: 0px 0px 40px 0px;
+    font-size: 2rem;
+    font-weight: 500;
+  }
 }

@@ -37,5 +37,8 @@ class Pages extends BaseController
         echo view('pages/faq');
         echo view('layout/footer');
     }
-    
+    public function admin()
+    {
+        echo view('pages/admin');
+    }
 }
