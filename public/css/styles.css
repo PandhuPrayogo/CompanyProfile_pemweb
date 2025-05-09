@@ -6,7 +6,9 @@
 
   --h1-font: 6rem;
   --h2-font: 3rem;
-  --p-font: 1rem;
+  --h3-font: 1.5rem;
+  --p-font: 1.2rem;
+  --line-height: 1.5;
 }
 * {
   padding: 0;
@@ -78,7 +80,7 @@ span {
   margin-right: 20px;
 }
 .h-right a {
-  vertical-align: mid;
+  vertical-align: middle;
   font-size: 20px;
   color: var(--text-color);
   margin-right: 18px;
@@ -94,6 +96,7 @@ span {
   font-size: 30px;
   cursor: pointer;
   z-index: 1001;
+  display: none;
 }
 
 /* Section Home */
@@ -112,18 +115,24 @@ section {
     ),
     url(/img/image1.jpg);
   background-size: cover;
-  background-position: bottom center;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 .home-text h5 {
-  font-size: 18px;
+  font-size: var(--p-font);
   font-weight: 600;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 6px;
   color: var(--main-color);
+}
+
+.home-text h3 {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 900;
 }
 .home-text h1 {
   font-size: var(--h1-font);
@@ -131,12 +140,21 @@ section {
   line-height: 1.2;
   margin-bottom: 20px;
 }
+.home-text h2 {
+  margin-bottom: 2rem;
+  font-size: var(--h2-font);
+}
 .home-text p {
   font-size: var(--p-font);
   font-weight: 500;
   line-height: 30px;
-  color: #ffffffab;
+  color: var(--text-color);
   margin-bottom: 35px;
+  width: 70%;
+  text-align: justify;
+}
+.home-text img {
+  width: 700px;
 }
 .button {
   display: inline-block;
@@ -156,7 +174,7 @@ section {
 }
 .why-heading {
   text-align: center;
-  font-size: 4rem;
+  font-size: var(--h1-font);
   padding: 1rem;
   margin: 2rem 0;
 }
@@ -174,7 +192,7 @@ section {
 }
 .why .why-row .why-image img {
   width: 100%;
-  border: 1rem solid #ffffffab;
+  border: 5px solid var(--text-color);
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -184,14 +202,14 @@ section {
   flex: 1 1 40rem;
 }
 .why .why-row .why-content h3 {
-  font-size: 3rem;
+  font-size: var(--h3-font);
   color: var(--main-color);
 }
 .why .why-row .why-content p {
-  font-size: 1.5rem;
+  font-size: var(--p-font);
   padding: 5rem 0;
   padding-top: 1rem;
-  line-height: 1.5;
+  line-height: var(--line-height);
   text-align: justify;
 }
 
@@ -203,7 +221,7 @@ section {
 }
 .review .review-heading {
   text-align: center;
-  font-size: 4rem;
+  font-size: var(--h1-font);
   padding: 1rem;
   margin: 2rem 0;
 }
@@ -232,7 +250,7 @@ section {
 }
 .review .review-container .review-box p {
   font-size: var(--p-font);
-  line-height: 1.5rem;
+  line-height: var(--line-height);
   padding-top: 2rem;
   text-align: justify;
 }
@@ -359,13 +377,13 @@ form textarea {
   justify-items: center;
 }
 .about-img img {
-  max-width: 530px;
+  max-width: 600px;
   height: auto;
   width: 100%;
   border-radius: 8px;
 }
 .about-text {
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
 }
 .about-text h2 {
@@ -605,68 +623,67 @@ form textarea {
   margin-bottom: 20px;
 }
 
-@media (max-width: 1700px) {
+/* Responsive Design */
+@media (max-width: 1480px) {
   header {
     padding: 18px 8%;
+    transition: 0.1s;
   }
   header.sticky {
     padding: 7px 8%;
   }
+  section {
+    padding: 110px 3% 60px;
+  }
+  .end {
+    padding: 15px 3%;
+  }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   header {
     padding: 14px 5%;
   }
   header.sticky {
     padding: 7px 5%;
   }
+  section {
+    padding: 45px 5% 35px;
+  }
   :root {
-    --h1-font: 5rem;
+    --h1-font: 4rem;
     --h2-font: 2.5rem;
-    --p-font: 0.9rem;
   }
   .home {
-    height: 90vh;
+    height: 87vh;
   }
 }
-@media (max-width: 1050px) {
-  header {
-    padding: 14px 5%;
+@media (max-width: 920px) {
+  .contact {
+    grid-template-columns: 1fr;
   }
-  header.sticky {
-    padding: 7px 5%;
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+  .about-container .about-img img {
+    text-align: center;
+    order: 2;
+  }
+  .about-container .about-text p {
+    text-align: justify;
+  }
+  .home-text img {
+    width: 70%;
   }
   :root {
-    --h1-font: 5rem;
-    --h2-font: 2.5rem;
-    --p-font: 0.9rem;
+    --h1-font: 3.5rem;
   }
-  .home {
-    height: 90vh;
+}
+@media (max-width: 600px) {
+  :root {
+    --h1-font: 3rem;
+    --p-font: 12px;
   }
-  #menu-icon {
-    display: block;
-  }
-  .navbar {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    padding: 40px 60px;
-    top: 0;
-    bottom: 0;
-    left: 100%;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    background: var(--bg-color-2);
-    transition: all 0.5s ease;
-  }
-  .navbar a {
-    display: block;
-    color: var(--text-color);
-    padding: 0;
-    margin: 0px 0px 40px 0px;
-    font-size: 2rem;
-    font-weight: 500;
+  .home-text p {
+    line-height: 1rem;
   }
 }

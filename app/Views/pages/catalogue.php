@@ -1,4 +1,8 @@
+<!-- Template Headerr -->
+<?php $this->extend('layout/template'); ?>
+
 <!-- Catalogue Section -->
+<?= $this->section('content'); ?>
 <section class="product-content">
       <div class="main-text">
         <p>Catalogue</p>
@@ -78,3 +82,4 @@
         <p> Last Update at: 5/5/2025 - 8:17 AM </p>
       </div>
     </section>
+    <?= $this->endSection(); ?>

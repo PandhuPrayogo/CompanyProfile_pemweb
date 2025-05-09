@@ -1,4 +1,8 @@
+<!-- Template Headerr -->
+<?php $this->extend('layout/template'); ?>
+
 <!-- Blog section design -->
+<?= $this->section('content'); ?>
 <section class="portofolio" id="portofolio">
         <div class="main-text">
           <p>Blog</p>
@@ -141,3 +145,4 @@
           <p id="detailDescription"></p>
         </div>
       </div>
+      <?= $this->endSection(); ?>

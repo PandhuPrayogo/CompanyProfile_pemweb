@@ -9,33 +9,38 @@ class Pages extends BaseController
 {
     public function index()
     {
-        echo view('layout/header');
-        echo view('pages/home');
-        echo view('layout/footer');
+        $data = [
+            'title' => 'Home | Ace Hobby Town',
+        ];
+        return view('pages/home', $data);
     }
     public function about()
     {
-        echo view('layout/header');
-        echo view('pages/about');
-        echo view('layout/footer');
+        $data = [
+            'title' => 'About | Ace Hobby Town',
+        ];
+        return view('pages/about',$data);
     }
     public function catalogue()
     {
-        echo view('layout/header');
-        echo view('pages/catalogue');
-        echo view('layout/footer');
+        $data = [
+            'title' => 'Catalogue | Ace Hobby Town',
+        ];
+        return view('pages/catalogue',  $data);
     }
     public function blog()
     {
-        echo view('layout/header');
-        echo view('pages/blog');
-        echo view('layout/footer');
+        $data = [
+            'title' => 'Blog | Ace Hobby Town',
+        ];
+        return view('pages/blog',  $data);
     }
     public function faq()
     {
-        echo view('layout/header');
-        echo view('pages/faq');
-        echo view('layout/footer');
+        $data = [
+            'title' => 'FAQ | Ace Hobby Town',
+        ];
+        return view('pages/faq',  $data);
     }
     public function admin()
     {

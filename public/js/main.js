@@ -1,6 +1,6 @@
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
-  header.classList.toggle("sticky", window.scrollY > 100);
+  header.classList.toggle("sticky", window.scrollY > 60);
 });
 
 const modal = document.getElementById("blog-detail");
@@ -35,10 +35,16 @@ window.addEventListener("click", (event) => {
   }
 });
 
-let menu = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", () => {
+  let menu = document.querySelector("#menu-icon");
+  if (menu) {
+    let icon = menu.querySelector("i");
+    let navbar = document.querySelector(".navbar");
 
-menu.onclick = () => {
-  menu.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
-};
+    menu.onclick = () => {
+      icon.classList.toggle("ri-menu-line");
+      icon.classList.toggle("ri-close-line");
+      navbar.classList.toggle("open");
+    };
+  }
+});

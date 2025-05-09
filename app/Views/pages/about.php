@@ -1,4 +1,9 @@
+  <!-- Template Headerr -->
+  <?php $this->extend('layout/template'); ?>
+
+
   <!-- About section design -->
+   <?= $this->section('content'); ?>
   <section class="about" id="about">
   <div class="main-text">
           <p>About</p>
@@ -47,3 +52,4 @@
           </p>
         </div>
       </section>
+      <?php $this->endSection(); ?>

@@ -1,3 +1,8 @@
+<!-- Template Headerr -->
+<?php $this->extend('layout/template'); ?>
+
+<!-- FAQ Section -->
+<?= $this->section('content'); ?>
 <section class="faq" id="faq">
     <div class="main-text">
         <p>FAQ</p>
@@ -30,3 +35,4 @@
 </div>
 </div>
 </section>
+<?= $this->endSection(); ?>

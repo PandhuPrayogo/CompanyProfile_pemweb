@@ -1,12 +1,16 @@
-        <!-- Section Home -->
+<!-- Template Headerr -->
+<?php $this->extend('layout/template'); ?>
+
+<!-- Section Home -->
+<?= $this->section('content'); ?>
         <section class="home">
             <div class="home-text">
                 <h5> Explore Our<h5>
                 <h1> Toys and <br> Hobbies Collection </h1>
+                <h3> ACE<span>HOBBY</span>TOWN </h3>
                 <p> "At Ace Hobby Town, we are committed to providing the highest quality toys and hobbies items that inspire 
-                  creativity, learning, and fun for children of all ages."Welcome to our toy store – 
-                  where Hobby and Fun Meets!</p>
-                  <img src="/img/logohome.png" alt="" width="1000px">
+                  creativity, learning, and fun for children of all ages."Welcome to our toy store – where Hobby and Fun Meets!"</p>
+                  <img src="/img/logohome.png" alt="">
             </div>
         </section>
 
@@ -15,16 +19,14 @@
             <h1 class="why-heading">Why<span> You Must Choose </span> ACEHOBBYTOWN?</h1>
 
             <div class="why-row">
-
-            <div class="why-image">
-              <img src="/img/image1.jpg" alt="">
-            </div>
-
-            <div class="why-content">
-              <h3> Why Choose us? </h3>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a libero maximus, vestibulum eros eget, ultricies ante. Donec hendrerit tincidunt mollis. Aliquam eget tortor at ex lobortis gravida. Cras sed est porta metus efficitur egestas et sed velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed augue ut diam volutpat aliquet. Vivamus quis sagittis nulla. Sed mattis, orci vitae finibus vulputate, metus nisl lobortis sapien, porta sagittis erat tellus at dolor. Sed eget urna et diam placerat euismod. Curabitur sed tellus tempus, vulputate sem eget, faucibus magna. Fusce faucibus aliquam arcu vitae elementum. Mauris nec purus scelerisque, tincidunt magna sit amet, finibus dui. Vestibulum laoreet turpis sed vehicula volutpat.</p>
-              <a href="/pages/about" class="button">Learn More</a>
-            </div>
+              <div class="why-image">
+                <img src="/img/imagehome1.jpg" alt="">
+              </div>
+              <div class="why-content">
+                <h2> Why Choose us? </h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a libero maximus, vestibulum eros eget, ultricies ante. Donec hendrerit tincidunt mollis. Aliquam eget tortor at ex lobortis gravida. Cras sed est porta metus efficitur egestas et sed velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed augue ut diam volutpat aliquet. Vivamus quis sagittis nulla. Sed mattis, orci vitae finibus vulputate, metus nisl lobortis sapien, porta sagittis erat tellus at dolor. Sed eget urna et diam placerat euismod. Curabitur sed tellus tempus, vulputate sem eget, faucibus magna. Fusce faucibus aliquam arcu vitae elementum. Mauris nec purus scelerisque, tincidunt magna sit amet, finibus dui. Vestibulum laoreet turpis sed vehicula volutpat.</p>
+                <a href="/pages/about" class="button">Learn More</a>
+              </div>
             </div>
         </section>
 
@@ -34,7 +36,6 @@
           <div class="review-container">
             <div class="review-box">
               <div class="review-stars">
-              <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
@@ -58,7 +59,6 @@
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
-              <i class="ri-heart-fill"></i>
               </div>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit aliquam velit sed cursus. Nunc aliquam tellus ac mattis convallis. Maecenas tincidunt purus ultricies nisi placerat fringilla sit amet non lacus. Morbi mattis condimentum nibh, a tempor erat eleifend a. Donec ut quam vel urna imperdiet pretium. Sed laoreet ante sed massa ultrices volutpat. Praesent vehicula nisi magna, ut auctor odio iaculis eu. Donec ornare blandit turpis, vel rutrum nisi varius sit amet. In eget lorem dignissim, consequat urna vel, gravida leo. Sed accumsan nunc et enim vehicula sollicitudin. Aenean rhoncus condimentum nisl, a gravida dui egestas eu.</p>
               <div class="review-user">
@@ -72,7 +72,6 @@
             
             <div class="review-box">
               <div class="review-stars">
-              <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
@@ -96,7 +95,6 @@
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
               <i class="ri-heart-fill"></i>
-              <i class="ri-heart-fill"></i>
               </div>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit aliquam velit sed cursus. Nunc aliquam tellus ac mattis convallis. Maecenas tincidunt purus ultricies nisi placerat fringilla sit amet non lacus. Morbi mattis condimentum nibh, a tempor erat eleifend a. Donec ut quam vel urna imperdiet pretium. Sed laoreet ante sed massa ultrices volutpat. Praesent vehicula nisi magna, ut auctor odio iaculis eu. Donec ornare blandit turpis, vel rutrum nisi varius sit amet. In eget lorem dignissim, consequat urna vel, gravida leo. Sed accumsan nunc et enim vehicula sollicitudin. Aenean rhoncus condimentum nisl, a gravida dui egestas eu.</p>
               <div class="review-user">
@@ -109,3 +107,4 @@
             </div>
           </div>
         </section>
+        <?= $this->endSection(); ?>
