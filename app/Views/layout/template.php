@@ -26,7 +26,7 @@
         </ul>
 
         <div class="h-right">
-          <a href="#">Login</a>
+          <a href="<?= base_url('/pages/admin') ;?>">Login</a>
           <a href="https://www.youtube.com/@gunplatown1240"><i class="ri-youtube-fill"></i></a>
           <a href="https://www.instagram.com/acehobbytown/"><i class="ri-instagram-line"></i></a>
           <a href="https://web.facebook.com/gunto.adm"><i class="ri-facebook-fill"></i></a>

@@ -10,76 +10,19 @@
       </div>
 
       <div class="new-product">
+        <?php foreach ($catalogue as $item) : ?>
         <div class="row-product">
-        <img src="<?= base_url('img/fullunicorngundam.jpg'); ?>" alt="Deskripsi Gambar">
-          <h4>[MG] Full Armor Unicorn Gundam Ver. KA</h4>
-          <h5>Rp. 1.280.000,00</h5>
+        <img src="/img/<?= $item['gambar_produk'];?>" alt="Deskripsi Gambar">
+          <h4><?= $item['nama_produk'];?></h4>
+          <h5> Price: <?= $item['harga_produk'];?></h5>
+          <h5> Stock: <?= $item['stok_tersedia'];?></h5>
           <div class="hot-badge">Hot Item</div>
         </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/zetagundam.jpg'); ?>"
-            alt="[MG] MSZ-006 Zeta Gundam Ver. Ka"
-          />
-          <h4>[MG] MSZ-006 Zeta Gundam Ver. Ka</h4>
-          <h5>Rp. 975.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/winggundamzero.jpg'); ?>"
-            alt="[MG] Wing Gundam Zero EW Ver. KA"
-          />
-          <h4>[MG] Wing Gundam Zero EW Ver. KA</h4>
-          <h5>Rp. 1.045.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/hi-v gundam.jpg'); ?>"
-            alt="[MG] Hi Nu Gundam Ver.Ka RX-93-v2 Hi-vGundam"
-          />
-          <h4>[MG] Hi Nu Gundam Ver.Ka RX-93-v2 Hi-vGundam</h4>
-          <h5>Rp. 1.140.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-        <img src="<?= base_url('img/fullunicorngundam.jpg'); ?>" alt="Deskripsi Gambar">
-          <h4>[MG] Full Armor Unicorn Gundam Ver. KA</h4>
-          <h5>Rp. 1.280.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/zetagundam.jpg'); ?>"
-            alt="[MG] MSZ-006 Zeta Gundam Ver. Ka"
-          />
-          <h4>[MG] MSZ-006 Zeta Gundam Ver. Ka</h4>
-          <h5>Rp. 975.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/winggundamzero.jpg'); ?>"
-            alt="[MG] Wing Gundam Zero EW Ver. KA"
-          />
-          <h4>[MG] Wing Gundam Zero EW Ver. KA</h4>
-          <h5>Rp. 1.045.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
-        <div class="row-product">
-          <img
-            src="<?= base_url('img/hi-v gundam.jpg'); ?>"
-            alt="[MG] Hi Nu Gundam Ver.Ka RX-93-v2 Hi-vGundam"
-          />
-          <h4>[MG] Hi Nu Gundam Ver.Ka RX-93-v2 Hi-vGundam</h4>
-          <h5>Rp. 1.140.000,00</h5>
-          <div class="hot-badge">Hot Item</div>
-        </div>
+        <?php endforeach; ?>
       </div>
 
       <div class="update-text">
-        <p> Last Update at: 5/5/2025 - 8:17 AM </p>
+        <p> Last Update at: </p>
       </div>
     </section>
     <?= $this->endSection(); ?>
