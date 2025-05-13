@@ -6,8 +6,8 @@
      * @var RouteCollection $routes
      */
     $routes->get('/', 'Pages::index');
-    $routes->setAutoRoute(true);
-    $routes->get('/pages','Pages::index');
+    $routes->setAutoRoute(false); /*alasan keamanan*/
+    $routes->get('/pages/home','Pages::index');
     $routes->get('/pages/about','Pages::about');
     $routes->get('/pages/catalogue','Pages::catalogue');
     $routes->get('/pages/blog','Pages::blog');

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class BlogModel extends Model
+class ReviewModel extends Model
 {
-    protected $table = 'blog';
+    protected $table = 'review';
     protected $primaryKey = 'id';
     protected $userTimestamps = true;
 }

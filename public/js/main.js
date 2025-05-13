@@ -35,16 +35,5 @@ window.addEventListener("click", (event) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  let menu = document.querySelector("#menu-icon");
-  if (menu) {
-    let icon = menu.querySelector("i");
-    let navbar = document.querySelector(".navbar");
-
-    menu.onclick = () => {
-      icon.classList.toggle("ri-menu-line");
-      icon.classList.toggle("ri-close-line");
-      navbar.classList.toggle("open");
-    };
-  }
-});
+const menuToggle = document.querySelector(".menu-toggle ri-menu-line");
+const nav = document.querySelector("header .navbar ul");

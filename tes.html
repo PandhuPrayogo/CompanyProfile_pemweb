@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Responsive Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Link for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <
+    <header>
+      <a href="#" class="logo">ACE<span>HOBBY</span>TOWN</a>
+
+      <!-- ✅ Tambahan: Checkbox untuk toggle menu -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-toggle"
+        ><i class="ri-menu-line"></i
+      ></label>
+
+      <div class="navbar">
+        <ul>
+          <li><a href="<?= base_url('/') ;?>"> Home </a></li>
+          <li><a href="<?= base_url('/pages/about') ;?>"> About </a></li>
+          <li>
+            <a href="<?= base_url('/pages/catalogue') ;?>"> Catalogue </a>
+          </li>
+          <li><a href="<?= base_url('/pages/blog') ;?>"> Blog </a></li>
+          <li><a href="<?= base_url('/pages/faq') ;?>"> FAQ </a></li>
+        </ul>
+      </div>
+
+      <div class="h-right">
+        <a href="<?= base_url('/pages/admin') ;?>">Login</a>
+        <a href="https://www.youtube.com/@gunplatown1240"
+          ><i class="ri-youtube-fill"></i
+        ></a>
+        <a href="https://www.instagram.com/acehobbytown/"
+          ><i class="ri-instagram-line"></i
+        ></a>
+        <a href="https://web.facebook.com/gunto.adm"
+          ><i class="ri-facebook-fill"></i
+        ></a>
+      </div>
+    </header>
+    <!-- Section for image -->
+    <section></section>
+  </body>
+</html>
