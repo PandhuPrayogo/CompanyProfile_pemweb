@@ -1,7 +1,21 @@
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
-  header.classList.toggle("sticky", window.scrollY > 60);
+  header.classList.toggle("sticky", window.scrollY > 100);
 });
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navbar = document.querySelector(".navbar");
+const navbarLinks = document.querySelectorAll(".nav-link");
+
+menuToggle.addEventListener("click", () => {
+  navbar.classList.toggle("open");
+});
+
+for (let i = 0; i < navbarLinks.length; i++) {
+  navbarLinks[i].addEventListener("click", () => {
+    navbar.classList.remove("open");
+  });
+}
 
 const modal = document.getElementById("blog-detail");
 const modalImage = document.getElementById("detailImage");
@@ -34,6 +48,3 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
-
-const menuToggle = document.querySelector(".menu-toggle ri-menu-line");
-const nav = document.querySelector("header .navbar ul");

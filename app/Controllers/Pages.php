@@ -6,16 +6,18 @@ use App\Controllers\BaseController;
 use App\Models\BlogModel;
 use App\Models\CatalogueModel;
 use App\Models\ReviewModel;
+use App\Models\FaqModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Pages extends BaseController
 {
-    protected $catalogueModel, $blogModel, $reviewModel;
+    protected $catalogueModel, $blogModel, $reviewModel,$faqModel;
     public function __construct()
     {
         $this->catalogueModel = new CatalogueModel();
         $this->blogModel = new BlogModel();
         $this->reviewModel = new ReviewModel();
+        $this->faqModel = new FaqModel();
     }
 
     public function index()
@@ -55,8 +57,10 @@ class Pages extends BaseController
     }
     public function faq()
     {
+        $faq = $this->faqModel->findAll();
         $data = [
             'title' => 'FAQ | Ace Hobby Town',
+            'faq' => $faq
         ];
         return view('pages/faq',  $data);
     }
