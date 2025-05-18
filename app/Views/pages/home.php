@@ -27,7 +27,7 @@
                       <h2> Mengapa harus memilih kami? </h2>
                       <p> Kami menyediakan berbagai macam mainan berkualitas untuk semua usia. Mulai dari permainan edukatif hingga boneka karakter kesayangan, semua koleksi kami dirancang untuk mengasah kreativitas dan pembelajaran anak.
                       Kami juga bangga memberikan pelayanan pelanggan yang ramah dan pengalaman belanja yang menyenangkan bagi seluruh keluarga.</p>
-                      <a href="/pages/about" class="button"> Jelajahi </a>
+                      <a href="about" class="button"> Jelajahi </a>
                     </div>
                   </div>
               </section>
@@ -116,7 +116,7 @@
                       Kami adalah tim yang bersemangat dengan tujuan meningkatkan kualitas hidup melalui produk yang inovatif. Kami menciptakan produk yang luar biasa untuk membantu menyelesaikan kebutuhan hobi Anda.
                       Produk kami cocok untuk individu, komunitas, hingga usaha kecil dan menengah yang ingin meningkatkan kualitas waktu dan hiburan mereka.
                     </p>
-                    <a href="/pages/about" class="button"> Jelajahi </a>
+                    <a href="about" class="button"> Jelajahi </a>
                   </div>
               </section>
 

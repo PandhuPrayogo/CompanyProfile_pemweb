@@ -1,7 +1,6 @@
 /* root */
 :root {
   --text-color: #ffffff;
-  --hover-effect: rgb(69, 239, 255);
   --bg-color: #000000;
   --main-color: #ffffff;
   --bg-color-2: #222222;
@@ -64,12 +63,12 @@ header.sticky {
   transition: all 0.5s ease;
 }
 .navbar a:hover {
-  color: var(--hover-effect);
+  color: var(--bg-color-2);
 }
 .h-right {
-  display: flex;
+  display: flex; /* pada jarak tertentu anchor menjadi list */
 }
-.h-right a:first-child {
+.h-right p {
   color: var(--text-color-2);
   font-size: var(--p-font);
   margin-right: 1rem;
@@ -82,19 +81,18 @@ header.sticky {
   transition: all 0.5s ease;
 }
 .h-right a:hover {
-  color: var(--hover-effect);
+  color: var(--bg-color-2);
   transform: translateY(-3px);
 }
 .menu-toggle {
   color: var(--text-color);
   font-size: 2rem;
-  cursor: pointer;
   z-index: 1001;
   display: none;
 }
 section {
   background-color: rgb(0, 0, 0);
-  padding: 70px 17% 60px;
+  padding: 70px 17% 60px; /* Atas 70px kanan kiri 17% bawah 60px */
 }
 
 /* Section Home */
@@ -102,12 +100,7 @@ section {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ),
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6)),
     url(/img/image1.jpg);
   background-size: cover;
   background-position: center;
@@ -281,8 +274,8 @@ section {
   background: var(--bg-color-2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
   gap: 2.5rem;
+  align-items: center;
 }
 .contact-text h4 {
   color: var(--text-color);
@@ -324,7 +317,7 @@ section {
   background: var(--main-color);
   color: var(--bg-color);
   font-size: 22px;
-  display: inline-flex;
+  display: inline-flex; /* biar berdampingan */
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -427,15 +420,15 @@ form textarea {
   text-align: justify;
 }
 .team {
-  padding: 60px;
+  padding: 30px;
   margin: 0 auto;
 }
 .team-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  align-items: start;
-  justify-items: center;
+  align-items: start; /* Vertikal */
+  justify-items: center; /* horizontal */
 }
 .team-card {
   display: flex;
@@ -593,13 +586,10 @@ form textarea {
   margin-bottom: 10px;
 }
 .row-product h5:nth-of-type(1) {
-  min-height: 24px;
-}
-.row-product h5:nth-of-type(2) {
-  min-height: 24px;
+  min-height: 24px; /* h5 pertama */
 }
 .badge {
-  position: absolute;
+  position: absolute; /* Parents Row bersifat absolute */
   top: 10px;
   left: 10px;
   background-color: black;
@@ -736,7 +726,7 @@ form textarea {
     transition: 0.1s;
   }
   header.sticky {
-    padding: 7px 8%;
+    padding: 10px 8%;
     transition: 0.1s;
   }
   section {
@@ -775,10 +765,6 @@ form textarea {
   .about-container {
     grid-template-columns: 1fr;
   }
-  .about-container .about-img img {
-    text-align: center;
-    order: 2;
-  }
   .about-container .about-text p {
     text-align: justify;
   }
@@ -798,13 +784,13 @@ form textarea {
   :root {
     --h1-font: 2.5rem;
     --p-font: 1.1rem;
-    --logo-size: 1.2rem;
+    --logo-size: 1rem;
   }
   .menu-toggle {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    cursor: pointer;
+    cursor: pointer; /* Ketika cursor mengarah ke elemen, akan berubah menjadi ikon menunjuk */
     margin-right: -10px;
   }
   .menu-toggle span {
@@ -836,13 +822,11 @@ form textarea {
   .about-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 3rem 1rem 0;
   }
 
-  .about-img img,
-  .about-text {
+  .about-img img, /* Mengatur agar jarak tidak berlebih ke kanan */
+    .about-text {
     max-width: 100%;
     width: 100%;
   }
@@ -850,11 +834,14 @@ form textarea {
 
 /* Small Mobile Display */
 @media (max-width: 576px) {
+  .logo {
+    font-size: var(--logo-size);
+  }
   .main-text {
     width: 100%;
     margin: 0 auto;
   }
-  .h-right a:first-child {
+  .h-right p {
     font-size: var(--p-font);
     margin-right: 0.5rem;
   }
@@ -874,9 +861,7 @@ form textarea {
   .about-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 3rem 1rem 0;
   }
   .about-img img,
   .about-text {
