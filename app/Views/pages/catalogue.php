@@ -19,13 +19,16 @@
               </div>
               <?php endforeach; ?>
             </div>
-
-            <div class="FindMore">
-              <p> Find More: </p>
-              <div class="FindMore-Icon">
-                <a href="https://shopee.co.id/acehobbytown"><img src="/img/shopee_icon.svg" alt="shopee acehobbytown"></a>
-                <a href="https://www.instagram.com/acehobbytown/"><img src="/img/tokopedia_icon.svg" alt="tokopedia acehobbytown" width="55px"></a>
-                <a href="https://web.facebook.com/gunto.adm"><i class="ri-facebook-fill"></i></a>
+            
+            <!-- Jelajahi lebih lanjut -->
+            <div class="more-info">
+              <div class="container-moreInfo">
+                <div class="more-text">
+                  <p> Jelajahi lebih lanjut: </p>
+                </div>
+              <div class="more-icons">
+                <a href="https://shopee.co.id/acehobbytown"><img src="/img/shopee_icon.svg" alt="Shopee Ace Hobby Town"></a>
+                <a href="https://www.tokopedia.com/acehobbytown"><img src="/img/tokopedia_icon.svg" alt="Tokopedia Ace Hobby Town"></a>
               </div>
             </div>
           </section>

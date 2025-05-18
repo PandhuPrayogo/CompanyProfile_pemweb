@@ -69,3 +69,19 @@ $routes->group('admin', ['namespace' => 'App\Controllers', 'filter' => 'authadmi
 // Untuk sekarang, kita bisa biarkan auto route default (true) atau jika Anda sudah set false, pastikan semua rute admin tercakup.
 // $routes->setAutoRoute(true); // Jika Anda ingin mengaktifkan auto routing sementara untuk debugging, tapi hati-hati.
 // Jika Anda sudah punya: $routes->setAutoRoute(false); /*alasan keamanan*/ , maka pastikan semua sudah terdefinisi.
+/** @var RouteCollection $routes */
+$routes->setAutoRoute(false);   
+$routes->setDefaultController('Pages');
+$routes->setDefaultMethod('index');
+
+// Halaman Utama & Static Pages
+$routes->get('/',          'Pages::index');
+$routes->get('home',       'Pages::index');
+$routes->get('about',      'Pages::about');
+$routes->get('catalogue',  'Pages::catalogue');
+$routes->get('blog',       'Pages::blog');
+$routes->get('faq',        'Pages::faq');
+$routes->get('admin',      'Pages::admin');
+
+// Route tambahan (jika ada)
+// $routes->post('contact/submit', 'Pages::submitContact');
