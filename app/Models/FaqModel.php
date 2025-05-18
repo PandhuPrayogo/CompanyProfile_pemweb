@@ -6,7 +6,14 @@ use CodeIgniter\Model;
 
 class FaqModel extends Model
 {
-    protected $table = 'faq';
-    protected $primaryKey = 'id';
-    protected $userTimestamps = true;
+    protected $table            = 'faq';
+    protected $primaryKey       = 'id_faq';
+    protected $useAutoIncrement = true;
+    protected $returnType       = 'array';
+    protected $allowedFields    = ['pertanyaan', 'jawaban', 'kategori', 'urutan']; // Sesuaikan
+
+    // Dates
+    protected $useTimestamps = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
 }

@@ -45,6 +45,7 @@
                 <li><a href="<?= site_url('logout'); ?>">Logout</a></li>
                 <li><a href="<?= site_url('admin'); ?>">Dashboard</a></li>
                 <li><a href="<?= site_url('admin/review'); ?>">Review</a></li>
+                <li><a href="<?= site_url('admin/faq'); ?>">FAQ</a></li>
                 <li><a href="<?= site_url('admin/blog'); ?>">Blog</a></li>
                 <li><a href="<?= site_url('admin/catalogue'); ?>">Katalog</a></li>
                 <li><a href="<?= site_url('/'); ?>" target="_blank">Lihat Website</a></li>

@@ -5,42 +5,44 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\BlogModel;
 use App\Models\CatalogueModel;
-use App\Models\ReviewModel; // Pastikan ini di-use
-use App\Models\UserModel;   // Pastikan ini di-use jika Anda menggunakannya di controller ini
+use App\Models\ReviewModel;
+use App\Models\FaqModel;
+use App\Models\UserModel; // Jika UserModel digunakan untuk mengambil info admin, dll.
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class AdminController extends BaseController
 {
-    // GABUNGKAN SEMUA DEKLARASI PROPERTI MODEL DI SINI
+    // --- DEKLARASI PROPERTI MODEL ---
     protected $blogModel;
     protected $catalogueModel;
-    protected $reviewModel; // Tambahkan ini
-    protected $userModel;   // Tambahkan ini jika Anda memiliki UserModel dan menggunakannya
+    protected $reviewModel;
+    protected $faqModel;
+    protected $userModel; // Untuk data user admin jika diperlukan
 
-    // HELPER CUKUP DIDEKLARASIKAN SEKALI (jika belum ada di BaseController)
-    // protected $helpers = ['form', 'url', 'text']; // Jika sudah ada di BaseController atau di __construct(), tidak perlu di sini
+    // --- DEKLARASI HELPER ---
+    // Helper akan otomatis di-load untuk semua method di controller ini
+    // protected array $helpers = ['form', 'url', 'text'];
 
-    // CUKUP SATU __construct()
+    // --- CONSTRUCTOR ---
     public function __construct()
     {
-        // Inisialisasi SEMUA model yang digunakan oleh controller ini
+        // Inisialisasi semua model yang akan digunakan
         $this->blogModel = new BlogModel();
         $this->catalogueModel = new CatalogueModel();
-        $this->reviewModel = new ReviewModel(); // Inisialisasi ReviewModel
-        $this->userModel = new UserModel();     // Inisialisasi UserModel jika digunakan
-
-        // Load helper jika belum di-load secara global atau di BaseController
-        // Jika sudah ada di properti $helpers di atas, tidak perlu di sini lagi.
-        // Jika belum, Anda bisa load di sini:
-        if (empty($this->helpers)) { // Contoh kondisi, sesuaikan jika perlu
-             helper(['form', 'url', 'text']);
-        }
+        $this->reviewModel = new ReviewModel();
+        $this->faqModel = new FaqModel();
+        $this->userModel = new UserModel(); // Pastikan UserModel.php sudah ada
+            // Load helper yang dibutuhkan di sini
+        helper(['form', 'url', 'text']);
     }
 
     public function index()
     {
         $data = [
             'title' => 'Admin Dashboard',
+            // Anda bisa menambahkan data lain di sini, misalnya jumlah postingan, produk, dll.
+            // 'total_blogs' => $this->blogModel->countAllResults(),
+            // 'total_catalogues' => $this->catalogueModel->countAllResults(),
         ];
         return view('admin/dashboard', $data);
     }
@@ -50,9 +52,7 @@ class AdminController extends BaseController
     {
         $data = [
             'title' => 'Kelola Blog',
-            'blogs' => $this->blogModel
-                            ->orderBy('updated_at', 'DESC')
-                            ->findAll()
+            'blogs' => $this->blogModel->orderBy('updated_at', 'DESC')->findAll()
         ];
         return view('admin/blog/list', $data);
     }
@@ -72,7 +72,7 @@ class AdminController extends BaseController
             'judul_blog' => 'required|min_length[3]|max_length[255]',
             'deskripsi_blog' => 'required',
             'gambar_blog' => [
-                'rules' => 'uploaded[gambar_blog]|max_size[gambar_blog,2048]|is_image[gambar_blog]|mime_in[gambar_blog,image/jpg,image/jpeg,image/png,image/webp]', // Naikkan max_size jika perlu
+                'rules' => 'uploaded[gambar_blog]|max_size[gambar_blog,2048]|is_image[gambar_blog]|mime_in[gambar_blog,image/jpg,image/jpeg,image/png,image/webp]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar terlebih dahulu.',
                     'max_size' => 'Ukuran gambar terlalu besar (maks 2MB).',
@@ -83,16 +83,14 @@ class AdminController extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            // Mengirim error validasi ke view menggunakan with('errors', $this->validator->getErrors())
-            // agar bisa diakses di view dengan session()->getFlashdata('errors') atau langsung $errors jika dikirim via $data
             return redirect()->to('admin/blog/create')->withInput()->with('errors', $this->validator->getErrors());
         }
 
         $fileGambar = $this->request->getFile('gambar_blog');
-        $namaGambar = 'default.jpg'; // Default jika tidak ada gambar
+        $namaGambar = 'default.jpg';
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
             $namaGambar = $fileGambar->getRandomName();
-            $fileGambar->move('img', $namaGambar);
+            $fileGambar->move('img', $namaGambar); // Pindah ke public/img
         }
 
         $this->blogModel->save([
@@ -108,13 +106,9 @@ class AdminController extends BaseController
 
     public function editBlog($slug = null)
     {
-        if ($slug === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($slug === null) { throw PageNotFoundException::forPageNotFound(); }
         $blog = $this->blogModel->where(['slug' => $slug])->first();
-        if (empty($blog)) {
-            throw new PageNotFoundException('Data blog dengan slug "' . esc($slug) . '" tidak ditemukan.');
-        }
+        if (empty($blog)) { throw new PageNotFoundException('Data blog dengan slug "' . esc($slug) . '" tidak ditemukan.');}
         $data = [
             'title' => 'Edit Postingan Blog',
             'validation' => \Config\Services::validation(),
@@ -125,13 +119,9 @@ class AdminController extends BaseController
 
     public function updateBlog($id_blog = null)
     {
-        if ($id_blog === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_blog === null) { throw PageNotFoundException::forPageNotFound(); }
         $blogLama = $this->blogModel->find($id_blog);
-        if (!$blogLama) {
-            throw PageNotFoundException::forPageNotFound('Postingan blog tidak ditemukan.');
-        }
+        if (!$blogLama) { throw PageNotFoundException::forPageNotFound('Postingan blog tidak ditemukan.');}
 
         $ruleJudul = 'required|min_length[3]|max_length[255]';
         if ($blogLama['judul_blog'] != $this->request->getVar('judul_blog')) {
@@ -141,10 +131,7 @@ class AdminController extends BaseController
         $rules = [
             'judul_blog' => $ruleJudul,
             'deskripsi_blog' => 'required',
-            'gambar_blog' => [
-                'rules' => 'max_size[gambar_blog,2048]|is_image[gambar_blog]|mime_in[gambar_blog,image/jpg,image/jpeg,image/png,image/webp]',
-                'errors' => [ /* ... sama seperti create ... */ ]
-            ]
+            'gambar_blog' => ['rules' => 'max_size[gambar_blog,2048]|is_image[gambar_blog]|mime_in[gambar_blog,image/jpg,image/jpeg,image/png,image/webp]']
         ];
 
         if (!$this->validate($rules)) {
@@ -152,15 +139,13 @@ class AdminController extends BaseController
         }
 
         $fileGambar = $this->request->getFile('gambar_blog');
-        // $namaGambar = $this->request->getVar('gambar_lama'); // Ini dari form, tapi lebih aman ambil dari DB
         $namaGambar = $blogLama['gambar_blog'];
-
 
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
             $namaGambarBaru = $fileGambar->getRandomName();
             $fileGambar->move('img', $namaGambarBaru);
-            if ($blogLama['gambar_blog'] && $blogLama['gambar_blog'] != 'default.jpg' && file_exists('img/' . $blogLama['gambar_blog'])) {
-                unlink('img/' . $blogLama['gambar_blog']);
+            if ($blogLama['gambar_blog'] && $blogLama['gambar_blog'] != 'default.jpg' && file_exists(FCPATH . 'img/' . $blogLama['gambar_blog'])) {
+                unlink(FCPATH . 'img/' . $blogLama['gambar_blog']);
             }
             $namaGambar = $namaGambarBaru;
         }
@@ -179,13 +164,11 @@ class AdminController extends BaseController
 
     public function deleteBlog($id_blog = null)
     {
-        if ($id_blog === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_blog === null) { throw PageNotFoundException::forPageNotFound(); }
         $blog = $this->blogModel->find($id_blog);
         if ($blog) {
-            if ($blog['gambar_blog'] && $blog['gambar_blog'] != 'default.jpg' && file_exists('img/' . $blog['gambar_blog'])) {
-                unlink('img/' . $blog['gambar_blog']);
+            if ($blog['gambar_blog'] && $blog['gambar_blog'] != 'default.jpg' && file_exists(FCPATH . 'img/' . $blog['gambar_blog'])) {
+                unlink(FCPATH . 'img/' . $blog['gambar_blog']);
             }
             $this->blogModel->delete($id_blog);
             session()->setFlashdata('pesan', 'Data blog berhasil dihapus.');
@@ -195,9 +178,7 @@ class AdminController extends BaseController
         return redirect()->to('admin/blog');
     }
 
-
     // --- CATALOGUE MANAGEMENT ---
-    // ... (method-method catalogue yang sudah ada sebelumnya) ...
     public function listCatalogue()
     {
         $data = [
@@ -253,13 +234,9 @@ class AdminController extends BaseController
     
     public function editCatalogue($slug = null)
     {
-        if ($slug === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($slug === null) { throw PageNotFoundException::forPageNotFound(); }
         $catalogue = $this->catalogueModel->where(['slug' => $slug])->first();
-        if (empty($catalogue)) {
-            throw new PageNotFoundException('Produk dengan slug "' . esc($slug) . '" tidak ditemukan.');
-        }
+        if (empty($catalogue)) { throw new PageNotFoundException('Produk dengan slug "' . esc($slug) . '" tidak ditemukan.');}
         $data = [
             'title' => 'Edit Produk Katalog',
             'validation' => \Config\Services::validation(),
@@ -270,13 +247,9 @@ class AdminController extends BaseController
 
     public function updateCatalogue($id_produk = null)
     {
-        if ($id_produk === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_produk === null) { throw PageNotFoundException::forPageNotFound(); }
         $catalogueLama = $this->catalogueModel->find($id_produk);
-        if (!$catalogueLama) {
-            throw PageNotFoundException::forPageNotFound('Produk tidak ditemukan.');
-        }
+        if (!$catalogueLama) { throw PageNotFoundException::forPageNotFound('Produk tidak ditemukan.');}
 
         $ruleNama = 'required|min_length[3]|max_length[255]';
         if ($catalogueLama['nama_produk'] != $this->request->getVar('nama_produk')) {
@@ -287,10 +260,7 @@ class AdminController extends BaseController
             'nama_produk' => $ruleNama,
             'harga_produk' => 'required|numeric|greater_than[0]',
             'stok_tersedia' => 'required|integer|greater_than_equal_to[0]',
-            'gambar_produk' => [
-                'rules' => 'max_size[gambar_produk,2048]|is_image[gambar_produk]|mime_in[gambar_produk,image/jpg,image/jpeg,image/png,image/webp]',
-                 'errors' => [ /* ... sama seperti blog ... */ ]
-            ]
+            'gambar_produk' => ['rules' => 'max_size[gambar_produk,2048]|is_image[gambar_produk]|mime_in[gambar_produk,image/jpg,image/jpeg,image/png,image/webp]']
         ];
 
         if (!$this->validate($rules)) {
@@ -298,15 +268,13 @@ class AdminController extends BaseController
         }
 
         $fileGambar = $this->request->getFile('gambar_produk');
-        // $namaGambar = $this->request->getVar('gambar_lama'); // Ambil dari DB lebih aman
         $namaGambar = $catalogueLama['gambar_produk'];
-
 
         if ($fileGambar->isValid() && !$fileGambar->hasMoved()) {
             $namaGambarBaru = $fileGambar->getRandomName();
             $fileGambar->move('img', $namaGambarBaru);
-            if ($catalogueLama['gambar_produk'] && $catalogueLama['gambar_produk'] != 'default.jpg' && file_exists('img/' . $catalogueLama['gambar_produk'])) {
-                unlink('img/' . $catalogueLama['gambar_produk']);
+            if ($catalogueLama['gambar_produk'] && $catalogueLama['gambar_produk'] != 'default.jpg' && file_exists(FCPATH . 'img/' . $catalogueLama['gambar_produk'])) {
+                unlink(FCPATH . 'img/' . $catalogueLama['gambar_produk']);
             }
             $namaGambar = $namaGambarBaru;
         }
@@ -326,13 +294,11 @@ class AdminController extends BaseController
 
     public function deleteCatalogue($id_produk = null)
     {
-        if ($id_produk === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_produk === null) { throw PageNotFoundException::forPageNotFound(); }
         $catalogue = $this->catalogueModel->find($id_produk);
          if ($catalogue) {
-            if ($catalogue['gambar_produk'] && $catalogue['gambar_produk'] != 'default.jpg' && file_exists('img/' . $catalogue['gambar_produk'])) {
-                unlink('img/' . $catalogue['gambar_produk']);
+            if ($catalogue['gambar_produk'] && $catalogue['gambar_produk'] != 'default.jpg' && file_exists(FCPATH . 'img/' . $catalogue['gambar_produk'])) {
+                unlink(FCPATH . 'img/' . $catalogue['gambar_produk']);
             }
             $this->catalogueModel->delete($id_produk);
             session()->setFlashdata('pesan', 'Produk katalog berhasil dihapus.');
@@ -402,13 +368,9 @@ class AdminController extends BaseController
 
     public function editReview($id_review = null)
     {
-        if ($id_review === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_review === null) { throw PageNotFoundException::forPageNotFound(); }
         $review = $this->reviewModel->find($id_review);
-        if (empty($review)) {
-            throw PageNotFoundException::forPageNotFound('Review tidak ditemukan.');
-        }
+        if (empty($review)) { throw PageNotFoundException::forPageNotFound('Review tidak ditemukan.');}
         $data = [
             'title'      => 'Edit Review Pelanggan',
             'validation' => \Config\Services::validation(),
@@ -419,13 +381,9 @@ class AdminController extends BaseController
 
     public function updateReview($id_review = null)
     {
-        if ($id_review === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_review === null) { throw PageNotFoundException::forPageNotFound(); }
         $reviewLama = $this->reviewModel->find($id_review);
-        if (!$reviewLama) {
-            throw PageNotFoundException::forPageNotFound('Review tidak ditemukan.');
-        }
+        if (!$reviewLama) { throw PageNotFoundException::forPageNotFound('Review tidak ditemukan.');}
 
         $rules = [
             'nama_pelanggan'    => 'required|min_length[3]|max_length[100]',
@@ -449,8 +407,8 @@ class AdminController extends BaseController
         if ($fileGambar && $fileGambar->isValid() && !$fileGambar->hasMoved()) {
             $namaGambarBaru = $fileGambar->getRandomName();
             $fileGambar->move('img', $namaGambarBaru);
-            if ($namaGambar && $namaGambar != 'default_profile.jpg' && file_exists('img/' . $namaGambar)) {
-                unlink('img/' . $namaGambar);
+            if ($namaGambar && $namaGambar != 'default_profile.jpg' && file_exists(FCPATH . 'img/' . $namaGambar)) {
+                unlink(FCPATH . 'img/' . $namaGambar);
             }
             $namaGambar = $namaGambarBaru;
         }
@@ -471,13 +429,11 @@ class AdminController extends BaseController
 
     public function deleteReview($id_review = null)
     {
-        if ($id_review === null) {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        if ($id_review === null) { throw PageNotFoundException::forPageNotFound(); }
         $review = $this->reviewModel->find($id_review);
         if ($review) {
-            if ($review['profile_pelanggan'] && $review['profile_pelanggan'] != 'default_profile.jpg' && file_exists('img/' . $review['profile_pelanggan'])) {
-                unlink('img/' . $review['profile_pelanggan']);
+            if ($review['profile_pelanggan'] && $review['profile_pelanggan'] != 'default_profile.jpg' && file_exists(FCPATH . 'img/' . $review['profile_pelanggan'])) {
+                unlink(FCPATH . 'img/' . $review['profile_pelanggan']);
             }
             $this->reviewModel->delete($id_review);
             session()->setFlashdata('pesan', 'Review berhasil dihapus.');
@@ -485,5 +441,101 @@ class AdminController extends BaseController
             session()->setFlashdata('error', 'Review tidak ditemukan.');
         }
         return redirect()->to('admin/review');
+    }
+
+    // --- FAQ MANAGEMENT ---
+    public function listFaq()
+    {
+        $data = [
+            'title' => 'Kelola FAQ',
+            'faqs'  => $this->faqModel->orderBy('urutan', 'ASC')->orderBy('id_faq', 'ASC')->findAll()
+        ];
+        return view('admin/faq/list', $data);
+    }
+
+    public function createFaq()
+    {
+        $data = [
+            'title'      => 'Tambah FAQ Baru',
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/faq/create', $data);
+    }
+
+    public function saveFaq()
+    {
+        $rules = [
+            'pertanyaan' => 'required|min_length[5]',
+            'jawaban'    => 'required|min_length[5]',
+            'kategori'   => 'permit_empty|max_length[100]',
+            'urutan'     => 'permit_empty|integer'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to('admin/faq/create')->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $this->faqModel->save([
+            'pertanyaan' => $this->request->getVar('pertanyaan'),
+            'jawaban'    => $this->request->getVar('jawaban'),
+            'kategori'   => $this->request->getVar('kategori'),
+            'urutan'     => $this->request->getVar('urutan') ?: 0,
+        ]);
+
+        session()->setFlashdata('pesan', 'FAQ berhasil ditambahkan.');
+        return redirect()->to('admin/faq');
+    }
+
+    public function editFaq($id_faq = null)
+    {
+        if ($id_faq === null) { throw PageNotFoundException::forPageNotFound(); }
+        $faq = $this->faqModel->find($id_faq);
+        if (empty($faq)) { throw PageNotFoundException::forPageNotFound('FAQ tidak ditemukan.');}
+        $data = [
+            'title'      => 'Edit FAQ',
+            'validation' => \Config\Services::validation(),
+            'faq'        => $faq
+        ];
+        return view('admin/faq/edit', $data);
+    }
+
+    public function updateFaq($id_faq = null)
+    {
+        if ($id_faq === null) { throw PageNotFoundException::forPageNotFound(); }
+        if (!$this->faqModel->find($id_faq)) { throw PageNotFoundException::forPageNotFound('FAQ tidak ditemukan.');}
+
+        $rules = [
+            'pertanyaan' => 'required|min_length[5]',
+            'jawaban'    => 'required|min_length[5]',
+            'kategori'   => 'permit_empty|max_length[100]',
+            'urutan'     => 'permit_empty|integer'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to('admin/faq/edit/' . $id_faq)->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $this->faqModel->save([
+            'id_faq'     => $id_faq,
+            'pertanyaan' => $this->request->getVar('pertanyaan'),
+            'jawaban'    => $this->request->getVar('jawaban'),
+            'kategori'   => $this->request->getVar('kategori'),
+            'urutan'     => $this->request->getVar('urutan') ?: 0,
+        ]);
+
+        session()->setFlashdata('pesan', 'FAQ berhasil diupdate.');
+        return redirect()->to('admin/faq');
+    }
+
+    public function deleteFaq($id_faq = null)
+    {
+        if ($id_faq === null) { throw PageNotFoundException::forPageNotFound(); }
+        if ($this->faqModel->find($id_faq)) {
+            $this->faqModel->delete($id_faq);
+            session()->setFlashdata('pesan', 'FAQ berhasil dihapus.');
+        } else {
+            session()->setFlashdata('error', 'FAQ tidak ditemukan.');
+        }
+        return redirect()->to('admin/faq');
     }
 }
