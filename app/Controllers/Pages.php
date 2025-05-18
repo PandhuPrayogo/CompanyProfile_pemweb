@@ -5,63 +5,76 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\BlogModel;
 use App\Models\CatalogueModel;
-use App\Models\ReviewModel;
-use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\ReviewModel; // Aktifkan (hilangkan komentar jika ada)
 
 class Pages extends BaseController
 {
-    protected $catalogueModel, $blogModel, $reviewModel;
+    protected $catalogueModel;
+    protected $blogModel;
+    protected $reviewModel; // Aktifkan (hilangkan komentar jika ada)
+    protected $helpers = ['url', 'text'];
+
     public function __construct()
     {
         $this->catalogueModel = new CatalogueModel();
         $this->blogModel = new BlogModel();
-        $this->reviewModel = new ReviewModel();
+        $this->reviewModel = new ReviewModel(); // Aktifkan (hilangkan komentar jika ada)
     }
 
     public function index()
     {
-        $review = $this->reviewModel->findAll();
+        // Ambil data review yang statusnya 'approved' (jika Anda menggunakan kolom status)
+        // Jika tidak menggunakan kolom status, atau ingin menampilkan semua, hilangkan ->where('status', 'approved')
+        $reviewsData = $this->reviewModel
+                            ->where('status', 'approved') // Opsional, tergantung implementasi Anda
+                            ->orderBy('created_at', 'DESC') // Tampilkan yang terbaru dulu
+                            ->findAll();
+
         $data = [
-            'title' => 'Home | Ace Hobby Town',
-            'review' => $review
+            'title'  => 'Home | Ace Hobby Town',
+            'review' => $reviewsData, // Pastikan key-nya 'review' sesuai dengan di view home.php
+            // Anda bisa tambahkan data lain untuk halaman home di sini, misalnya:
+            // 'latest_products' => $this->catalogueModel->orderBy('created_at', 'DESC')->limit(4)->findAll(),
+            // 'latest_blogs'    => $this->blogModel->orderBy('created_at', 'DESC')->limit(3)->findAll(),
         ];
         return view('pages/home', $data);
     }
+
     public function about()
     {
         $data = [
             'title' => 'About | Ace Hobby Town',
         ];
-        return view('pages/about',$data);
+        return view('pages/about', $data);
     }
+
     public function catalogue()
     {
-        $catalogue = $this->catalogueModel->findAll();
+        $catalogueItems = $this->catalogueModel->orderBy('updated_at', 'DESC')->findAll();
         $data = [
-            'title' => 'Catalogue | Ace Hobby Town',
-            'catalogue' => $catalogue
-    ];
-
+            'title'     => 'Catalogue | Ace Hobby Town',
+            'catalogue' => $catalogueItems
+        ];
         return view('pages/catalogue', $data);
     }
+
     public function blog()
     {
-        $blog = $this->blogModel->findAll();
+        $blogPosts = $this->blogModel->orderBy('updated_at', 'DESC')->findAll();
         $data = [
             'title' => 'Blog | Ace Hobby Town',
-            'blog' => $blog
+            'blog'  => $blogPosts
         ];
-        return view('pages/blog',  $data);
+        return view('pages/blog', $data);
     }
+
     public function faq()
     {
         $data = [
             'title' => 'FAQ | Ace Hobby Town',
         ];
-        return view('pages/faq',  $data);
+        return view('pages/faq', $data);
     }
-    public function admin()
-    {
-        echo view('pages/admin');
-    }
+
+    // ... (method detailBlog dan detailProduk jika ada) ...
 }

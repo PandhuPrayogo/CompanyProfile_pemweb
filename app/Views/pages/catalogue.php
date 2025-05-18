@@ -16,7 +16,6 @@
                 <h4><?= $item['nama_produk'];?></h4>
                 <h5> Rp. <?= $item['harga_produk'];?></h5>
                 <h5> Stock: <?= $item['stok_tersedia'];?></h5>
-                <div class="badge"><?= $item['badge'];?></div>
               </div>
               <?php endforeach; ?>
             </div>
