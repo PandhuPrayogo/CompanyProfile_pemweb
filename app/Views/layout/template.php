@@ -66,11 +66,6 @@
               </div>
             </div>
 
-            <div class="h-right">
-              <a href="https://www.youtube.com/@gunplatown1240"><i class="ri-youtube-fill"></i></a>
-              <a href="https://www.instagram.com/acehobbytown/"><i class="ri-instagram-line"></i></a>
-              <a href="https://web.facebook.com/gunto.adm"><i class="ri-facebook-fill"></i></a>
-              <div class="menu-toggle"><i class="ri-menu-line"></i></div>
             <div class="contact-form">
               <form action="" method="post">
                 <div>

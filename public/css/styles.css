@@ -108,6 +108,10 @@ section {
   align-items: center;
   justify-content: flex-start;
 }
+.home-text {
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
 .home-text h5 {
   font-size: var(--p-font);
   font-weight: 600;
@@ -826,7 +830,7 @@ form textarea {
   }
 
   .about-img img, /* Mengatur agar jarak tidak berlebih ke kanan */
-    .about-text {
+      .about-text {
     max-width: 100%;
     width: 100%;
   }
