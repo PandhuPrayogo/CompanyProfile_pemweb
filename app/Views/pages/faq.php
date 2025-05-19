@@ -11,11 +11,8 @@
 <div class="faq-content">
 <?php foreach ($faq as $question) : ?>
 <div class="faq-box">
-    <div class="faq-icons">
-    <i class="<?=$question['icon'];?>"></i>
-    </div>
-    <h3><?=$question['question'];?></h3>
-    <p> <?=$question['answer'];?> </p>
+    <h3><?=$question['pertanyaan'];?></h3>
+    <p> <?=$question['jawaban'];?> </p>
 </div>
 <?php endforeach; ?>
 </div>
