@@ -31,10 +31,7 @@ class Pages extends BaseController
     public function index()
     {
         // Kode Anda untuk method index (menggunakan reviewModel) sudah benar
-        $reviewsData = $this->reviewModel
-                            ->where('status', 'approved')
-                            ->orderBy('created_at', 'DESC')
-                            ->findAll();
+        $reviewsData = $this->reviewModel->findAll();
 
         $data = [
             'title'  => 'Home | Ace Hobby Town',
