@@ -67,7 +67,7 @@
             </div>
 
             <div class="contact-form">
-              <form action="" method="post">
+              <form action="https://api.web3forms.com/submit" method="POST">
                 <div>
                   <input type="name" placeholder="Masukkan nama" />
                 </div>
@@ -88,6 +88,7 @@
                   required
                 ></textarea>
                 <input type="submit" value="Kirim pesan" class="submit" required />
+                <input type="hidden" name="access_key" value="73d75c17-31ea-47eb-b2fd-cb9a075f1496">
               </form>
             </div>
           </section>
